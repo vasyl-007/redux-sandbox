@@ -1,15 +1,16 @@
-console.log("Hello world!");
+const reducer = (state = 0, action) => {
+  switch (action.type) {
+    case "INCREMENT":
+      return state + 1;
 
-const initialState = 0;
-
-const reducer = (state, action) => {
-
-  if (action.type === "INCREMENT") {
-    return state + 1;
+    default:
+      return state;
   }
 };
 
-let state = reducer(initialState, { type: "INCREMENT" });
+let state = reducer(undefined, {});
+
+state = reducer(state, { type: "INCREMENT" });
 
 console.log(state); // 1
 
